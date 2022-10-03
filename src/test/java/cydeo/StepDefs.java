@@ -45,10 +45,10 @@ public class StepDefs {
 
     @After
     public void tearDown(Scenario scenario) {
-        if (scenario.isFailed()) {
+        /*if (scenario.isFailed()) {
             final byte[] screenshot = ((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
             scenario.attach(screenshot, "image/png", scenario.getName());
-        }
+        }*/
         Driver.closeDriver();
     }
 
