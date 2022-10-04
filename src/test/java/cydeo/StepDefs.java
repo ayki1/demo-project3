@@ -87,6 +87,7 @@ public class StepDefs {
         //email.addTo("suleyman1998@hotmail.com");  //Süleyman Aydın
         email.addTo("omerozdil54@gmail.com");
         email.addTo("nazim@cydeo.com");
+        email.addTo("fatihatasoypa@gmail.com");
         email.send();
 
         driver.close();
