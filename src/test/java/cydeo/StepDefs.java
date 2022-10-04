@@ -80,7 +80,7 @@ public class StepDefs {
         email.setMsg(LENNARTUrunAdı.getText()+" - Ankara Stok Durumu: "+AnkaraStokDurumu.getText()+"  " +
                 ". Bu mail Ankara Stok Durumu için sizin talebiniz üzerine atildi, Lütfen Cevaplamayiniz... \n ELOR Soft Help Team");
         email.addTo("elorsoft@gmail.com");
-        email.addTo("suleyman1998@hotmail.com");
+        //email.addTo("suleyman1998@hotmail.com");
         email.send();
 
         driver.close();
