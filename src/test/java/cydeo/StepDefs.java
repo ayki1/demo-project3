@@ -77,10 +77,16 @@ public class StepDefs {
         email.setFrom("elorsoft@gmail.com");
         email.setSubject(LENNARTUrunAdı.getText()+" - Ankara: "+AnkaraStokDurumu.getText());
 
-        email.setMsg(LENNARTUrunAdı.getText()+" - Ankara Stok Durumu: "+AnkaraStokDurumu.getText()+"  " +
-                ". Bu mail Ankara Stok Durumu için sizin talebiniz üzerine atildi, Lütfen Cevaplamayiniz... \n ELOR Soft Help Team");
+        email.setMsg(LENNARTUrunAdı.getText()+" - Ankara Stok Durumu: "+AnkaraStokDurumu.getText()+
+                "\n\nBu mail Ankara Stok Durumu için sizin talebiniz üzerine atildi, " +
+                "Lütfen Cevaplamayiniz... " +
+                "\n\nVerilerin alındığı adres: " +
+                "https://www.ikea.com.tr/urun-katalogu/calisma-alanlari/kesonlar-ve-dolaplar/30326177/lennart-keson.aspx"+
+                "\n\n ELOR Soft Help Team");
         email.addTo("elorsoft@gmail.com");
-        //email.addTo("suleyman1998@hotmail.com");
+        //email.addTo("suleyman1998@hotmail.com");  //Süleyman Aydın
+        email.addTo("omerozdil54@gmail.com");
+        email.addTo("nazim@cydeo.com");
         email.send();
 
         driver.close();
