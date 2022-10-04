@@ -63,10 +63,11 @@ public class StepDefs {
                 ("elorsoft@gmail.com", "pqmrdxdxtoflwlae"));
         email.setSSLOnConnect(true);
         email.setFrom("elorsoft@gmail.com");
-        email.setSubject("ANKARA STOK: "+AnkaraStokDurumu.getText());
+        email.setSubject(LENNARTUrunAdı.getText()+" - Ankara: "+AnkaraStokDurumu.getText());
 
-        email.setMsg(LENNARTUrunAdı.getText()+" - ANKARA STOK DURUMU: "+AnkaraStokDurumu.getText()+"  . Bu mail Ankara Stok Durumu için sizin talebiniz üzerine atildi, Cevaplamayiniz.");
-        email.addTo("elorsoft@gmail.com");
+        email.setMsg(LENNARTUrunAdı.getText()+" - Ankara Stok Durumu: "+AnkaraStokDurumu.getText()+"  " +
+                ". Bu mail Ankara Stok Durumu için sizin talebiniz üzerine atildi, Lütfen Cevaplamayiniz... \n ELOR Soft Help Team");
+        email.addTo("elorsoft@gmail.com"+"suleyman1998@hotmail.com");
         email.send();
 
         driver.close();
