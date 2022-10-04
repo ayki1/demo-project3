@@ -1,7 +1,5 @@
 package cydeo;
 
-import static org.junit.Assert.fail;
-
 import io.cucumber.java.After;
 import io.cucumber.java.Scenario;
 import io.cucumber.java.en.Given;
@@ -11,11 +9,13 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.commons.mail.DefaultAuthenticator;
 import org.apache.commons.mail.Email;
 import org.apache.commons.mail.SimpleEmail;
-import org.junit.Assert;
-import org.openqa.selenium.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-import java.util.concurrent.TimeUnit;
+import java.awt.*;
+import java.awt.event.InputEvent;
 
 
 public class StepDefs {
@@ -27,15 +27,27 @@ public class StepDefs {
         driver.manage().window().maximize();
 
         driver.get("https://www.ikea.com.tr/urun-katalogu/calisma-alanlari/kesonlar-ve-dolaplar/30326177/lennart-keson.aspx");
-
+        Thread.sleep(3000);
 
         //identify the select element
         WebElement MagazaStokDurumu=driver.
                 findElement(By.linkText("Mağaza Stok Durumu"));
-        //Thread.sleep(2000);
+
 
         //Mağaza Stok Durumu Aç
         MagazaStokDurumu.click();
+
+        //POP-UP KAPAT
+        //driver.switchTo().alert().dismiss();
+        //Alert AlertObj=driver.switchTo().alert();
+        //AlertObj.dismiss();
+
+        Robot robot = new Robot();
+        robot.mouseMove(400,85);
+        robot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
+        Thread.sleep(2000);
+        robot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
+        Thread.sleep(2000);
 
         //Ankara Stok Bak
         WebElement AnkaraStokDurumu=driver.findElement(By.
@@ -67,7 +79,8 @@ public class StepDefs {
 
         email.setMsg(LENNARTUrunAdı.getText()+" - Ankara Stok Durumu: "+AnkaraStokDurumu.getText()+"  " +
                 ". Bu mail Ankara Stok Durumu için sizin talebiniz üzerine atildi, Lütfen Cevaplamayiniz... \n ELOR Soft Help Team");
-        email.addTo("elorsoft@gmail.com"+"suleyman1998@hotmail.com");
+        email.addTo("elorsoft@gmail.com");
+        email.addTo("suleyman1998@hotmail.com");
         email.send();
 
         driver.close();
