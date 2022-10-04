@@ -38,12 +38,19 @@ public class StepDefs {
         MagazaStokDurumu.click();
 
         //Ankara Stok Bak
-        WebElement AnkaraStokDurumu=driver.findElement(By.xpath("//*[@id=\"divCheckStock\"]/table/tbody/tr[1]/td[2]/div/div/span"));
+        WebElement AnkaraStokDurumu=driver.findElement(By.
+                xpath("//*[@id=\"divCheckStock\"]/table/tbody/tr[1]/td[2]/div/div/span"));
         System.out.println("Ankara StokDurumu = " + AnkaraStokDurumu.getText());
 
         //Antalya Stok Bak
-        WebElement AntalyaStokDurumu=driver.findElement(By.xpath("//*[@id=\"divCheckStock\"]/table/tbody/tr[2]/td[2]/div/div/span"));
+        WebElement AntalyaStokDurumu=driver.findElement(By.
+                xpath("//*[@id=\"divCheckStock\"]/table/tbody/tr[2]/td[2]/div/div/span"));
         System.out.println("Antalya StokDurumu = " + AntalyaStokDurumu.getText());
+
+        //ÜRÜN ADI BUL
+        WebElement LENNARTUrunAdı=driver.findElement(By.id("ctl00_ContentPlaceHolder1_hlSearchButton"));
+        System.out.println("LENNARTUrunAdı.getText() = " + LENNARTUrunAdı.getText());
+
 
         //Sonucu_Mail_At();
         Email email = new SimpleEmail();
@@ -58,7 +65,7 @@ public class StepDefs {
         email.setFrom("elorsoft@gmail.com");
         email.setSubject("ANKARA STOK: "+AnkaraStokDurumu.getText());
 
-        email.setMsg("ANKARA STOK DURUMU: "+AnkaraStokDurumu.getText()+"  . Bu mail Ankara Stok Durumu için atıldı, Cevaplamayınız :-)");
+        email.setMsg(LENNARTUrunAdı.getText()+" - ANKARA STOK DURUMU: "+AnkaraStokDurumu.getText()+"  . Bu mail Ankara Stok Durumu için sizin talebiniz üzerine atildi, Cevaplamayiniz.");
         email.addTo("elorsoft@gmail.com");
         email.send();
 
